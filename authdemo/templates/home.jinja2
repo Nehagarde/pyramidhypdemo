@@ -2,6 +2,8 @@ Home Page
 <head>
     <head>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script async src="http://localhost:5000/embed.js"></script>
+
     </head>
 </head>
 {{ content }}
@@ -13,6 +15,14 @@ Passwd:
 <button id="login">Login</button>
 <p id="response">
 </p>
+<br/>
+<p id="headresp">
+</p>
+<br/>
+<p id="role">
+</p>
+here hyp client
+
 <script >
 $( document ).ready(function() {
     $("#login").click(function(){
@@ -25,6 +35,8 @@ $( document ).ready(function() {
         data: JSON.stringify({"uname":uname,"passwd":passwd}),
         success : function(data){
              $("#response").html(data.message)
+             $("#headresp").html(data.headers[[1]])
+             $("#role").html(data.role)
         }
       });
     });
